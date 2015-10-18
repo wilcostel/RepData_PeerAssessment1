@@ -66,17 +66,15 @@ img {
 </div>
 
 
-<p>Dataset: Activity monitoring data [52K] The dataset is in the repo. The variables included in this dataset are:</p>
-<p>steps: Number of steps taking in a 5-minute interval (missing values are coded as NA)</p>
-<p>date: The date on which the measurement was taken in YYYY-MM-DD format</p>
-<p>interval: Identifier for the 5-minute interval in which measurement was taken</p>
-<p>When you don’t have the data on your workspace you can get it from this url: <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip">https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip</a></p>
-<p>For this part of the assignment, you can ignore the missing values in the dataset. We do the following:</p>
-<ul>
-<li><p>Calculate the total number of steps taken per day</p></li>
-<li><p>If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day</p></li>
-<li><p>Calculate and report the mean and median of the total number of steps taken per day</p></li>
-</ul>
+<div id="part1" class="section level2">
+<h2>part1</h2>
+<div id="loading-and-preprocessing-the-data" class="section level3">
+<h3>Loading and preprocessing the data</h3>
+<p>Show any code that is needed to</p>
+<ol style="list-style-type: decimal">
+<li><p>Load the data (i.e. <code>read.csv()</code>)</p></li>
+<li><p>Process/transform the data (if necessary) into a format suitable for your analysis</p></li>
+</ol>
 <pre class="r"><code>library(knitr)</code></pre>
 <pre><code>## Warning: package 'knitr' was built under R version 3.1.3</code></pre>
 <pre class="r"><code>library(dplyr)</code></pre>
@@ -131,6 +129,15 @@ str(data)</code></pre>
 ## 9  2012-10-11 10304
 ## 10 2012-10-12 17382
 ## ..        ...   ...</code></pre>
+</div>
+</div>
+<div id="part2-what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
+<h2>part2 ### What is mean total number of steps taken per day?</h2>
+<p>For this part of the assignment, you can ignore the missing values in the dataset.</p>
+<ol style="list-style-type: decimal">
+<li><p>Make a histogram of the total number of steps taken each day</p></li>
+<li><p>Calculate and report the <strong>mean</strong> and <strong>median</strong> total number of steps taken per day</p></li>
+</ol>
 <pre class="r"><code>png(&quot;instructions_fig/plot1.png&quot;)
 g&lt;-ggplot(steps, aes(x = steps))
 g&lt;- g +  geom_histogram(fill = &quot;firebrick&quot;, binwidth = 1000) +
@@ -146,8 +153,9 @@ mean_steps</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>median_steps</code></pre>
 <pre><code>## [1] 10765</code></pre>
-<div id="part2" class="section level2">
-<h2>part2</h2>
+</div>
+<div id="part3" class="section level2">
+<h2>part3</h2>
 <p>In the following we find the daily average activity pattern:</p>
 <ul>
 <li><p>Make a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)</p></li>
@@ -166,8 +174,8 @@ dev.off()</code></pre>
 <pre><code>## png 
 ##   2</code></pre>
 </div>
-<div id="part3" class="section level2">
-<h2>part3</h2>
+<div id="part4" class="section level2">
+<h2>part4</h2>
 <p>In the following part we will take a look at the imputing missing values</p>
 <p>Note that there are a number of days/intervals where there are missing values (coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data.</p>
 <p>Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)</p>
@@ -222,8 +230,8 @@ mean_steps_full</code></pre>
 <pre class="r"><code>median_steps_full</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 </div>
-<div id="part4" class="section level2">
-<h2>part4</h2>
+<div id="part5" class="section level2">
+<h2>part5</h2>
 <p>In the last part we look i there are differences in activity patterns between weekdays and weekends</p>
 <p>Create a new factor variable in the dataset with two levels - “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.</p>
 <p>Make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</p>

@@ -1,28 +1,17 @@
 # PA1_Template
 Wilco Stel  
-Dataset: Activity monitoring data [52K]
-The dataset is in the repo.
-The variables included in this dataset are:
 
-steps: Number of steps taking in a 5-minute interval (missing values are coded as NA)
+##part1
 
-date: The date on which the measurement was taken in YYYY-MM-DD format
+### Loading and preprocessing the data
 
-interval: Identifier for the 5-minute interval in which measurement was taken
+Show any code that is needed to
 
-When you don't have the data on your workspace you can get it 
-from this url:
-https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip
+1. Load the data (i.e. `read.csv()`)
 
-For this part of the assignment, you can ignore the missing values in the dataset.
-We do the following:
-
-- Calculate the total number of steps taken per day
-
-- If you do not understand the difference between a histogram and a barplot, research the    difference between them. Make a histogram of the total number of steps taken each day
+2. Process/transform the data (if necessary) into a format suitable for your analysis
 
 
-- Calculate and report the mean and median of the total number of steps taken per day
 
 
 ```r
@@ -124,6 +113,16 @@ steps <- data %>%
 ## ..        ...   ...
 ```
 
+## part2 ### What is mean total number of steps taken per day?
+
+For this part of the assignment, you can ignore the missing values in
+the dataset.
+
+1. Make a histogram of the total number of steps taken each day
+
+2. Calculate and report the **mean** and **median** total number of steps taken per day
+
+
 ```r
 png("instructions_fig/plot1.png")
 g<-ggplot(steps, aes(x = steps))
@@ -157,10 +156,10 @@ median_steps
 ## [1] 10765
 ```
 
-##part2
+##part3
 In the following we find the daily average activity pattern:
 
- - Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average                          number of steps taken, averaged across all days (y-axis)
+ - Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
  - Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -183,7 +182,7 @@ dev.off()
 ## png 
 ##   2
 ```
-##part3
+##part4
 In the following part we will take a look at the imputing missing values
 
 Note that there are a number of days/intervals where there are missing values (coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data.
@@ -285,7 +284,7 @@ median_steps_full
 ```
 ## [1] 10766.19
 ```
-##part4
+##part5
 In the last part we look i there are differences in activity patterns between weekdays and weekends
 
 
